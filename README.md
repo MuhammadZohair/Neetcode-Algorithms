@@ -11,4 +11,5 @@ Please feel free to create a PR if you find any bug.
 ## List of problems solved so far:
 
 - [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+- [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
