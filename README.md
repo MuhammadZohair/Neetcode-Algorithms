@@ -12,4 +12,5 @@ Please feel free to create a PR if you find any bug.
 
 - [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 - [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+- [Two Sum](https://leetcode.com/problems/two-sum/)
 
