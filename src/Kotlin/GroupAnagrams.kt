@@ -10,7 +10,6 @@ object GroupAnagrams {
         val strs = arrayOf("eat", "tea", "tan", "ate", "nat", "bat")
 
         println(groupAnagrams(strs))
-
     }
 
     fun groupAnagrams(strs: Array<String>): List<List<String>> {
@@ -43,12 +42,13 @@ object GroupAnagrams {
     }
 
     fun groupAnagramsBest(strs: Array<String>): List<List<String>> {
-        var map = mutableMapOf<String, MutableList<String>>()
+        val map = mutableMapOf<String, MutableList<String>>()
         val ans: MutableList<List<String>> = mutableListOf()
         for (i in strs) {
-            var arr = i.toCharArray()
+            val arr = i.toCharArray()
             arr.sort()
             map[String(arr)]?.add(i) ?: map.put(String(arr), mutableListOf(i))
+            map[String(arr)]?.add(i)
         }
 
         for (i in map) {
