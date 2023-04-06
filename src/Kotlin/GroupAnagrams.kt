@@ -5,13 +5,6 @@ import java.util.stream.Collectors
 
 object GroupAnagrams {
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val strs = arrayOf("eat", "tea", "tan", "ate", "nat", "bat")
-
-        println(groupAnagrams(strs))
-    }
-
     @Test
     fun groupAnagramsTest() {
         val strs = arrayOf("eat", "tea", "tan", "ate", "nat", "bat")
@@ -38,6 +31,8 @@ object GroupAnagrams {
             map[key] = currentList
         }
 
+        map.forEach { println(" ${it.key} -> ${it.value}") }
+
         return ArrayList(map.values)
 
     }
@@ -48,19 +43,18 @@ object GroupAnagrams {
     }
 
     fun groupAnagramsBest(strs: Array<String>): List<List<String>> {
-        val res: HashMap<String, MutableList<String>> = hashMapOf()
-
-        for (s in strs) {
-            val count = IntArray(26)
-
-            for (c in s) {
-                val index = c - 'a'
-                count[index] += 1
-            }
-
-            res[count.joinToString()] = res.getOrDefault(count.joinToString(), mutableListOf()).also { it.add(s) }
+        var map = mutableMapOf<String, MutableList<String>>()
+        val ans: MutableList<List<String>> = mutableListOf()
+        for (i in strs) {
+            var arr = i.toCharArray()
+            arr.sort()
+            map[String(arr)]?.add(i) ?: map.put(String(arr), mutableListOf(i))
         }
 
-        return res.values.toList()
+        for (i in map) {
+            ans.add(i.value)
+        }
+
+        return ans
     }
 }
